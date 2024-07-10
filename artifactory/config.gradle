@@ -1,0 +1,7 @@
+project.ext {
+    //artifactory settings
+    repositoryPath = "https://payu.jfrog.io/payu"
+    repositoryName = "mobile-sdk-gradle-local"
+    repositoryUserName = ""
+    repositoryPassword = ""
+}

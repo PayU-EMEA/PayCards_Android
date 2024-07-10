@@ -10,4 +10,5 @@
 
 /.idea
 /private.properties
-
+/artifactory/local.config.gradle
+/sdk/.cxx

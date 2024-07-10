@@ -23,11 +23,11 @@ class CardRectCoordsMapper {
 
     private static final PointF DEFAULT_CARD_HOLDER_POS = new PointF(33f,364f);
 
-    private static final float DEFAULT_CARD_NUMBER_FONT_SIZE = 40;
+    private static final float DEFAULT_CARD_NUMBER_FONT_SIZE = 45;
 
-    private static final float DEFAULT_CARD_DATE_FONT_SIZE = 27;
+    private static final float DEFAULT_CARD_DATE_FONT_SIZE = 28;
 
-    private static final float DEFAULT_CARD_HOLDER_FONT_SIZE = 27;
+    private static final float DEFAULT_CARD_HOLDER_FONT_SIZE = 28;
 
     private static final boolean DBG = BuildConfig.DEBUG;
 

@@ -9,6 +9,7 @@ buildscript {
     dependencies {
         //classpath 'com.android.tools.build:gradle:3.3.0-alpha04'
         classpath 'com.android.tools.build:gradle:3.6.4'
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.24.20"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -28,9 +29,9 @@ task clean(type: Delete) {
 
 ext {
     // Sdk and tools
-    minSdkVersion = 16
-    targetSdkVersion = 28
-    compileSdkVersion = 28
+    minSdkVersion = 21
+    targetSdkVersion = 33
+    compileSdkVersion = 33
 
     // App dependencies
     supportLibVersion = '27.1.1'
