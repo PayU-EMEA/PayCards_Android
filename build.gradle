@@ -4,11 +4,10 @@ buildscript {
 
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
     dependencies {
-        //classpath 'com.android.tools.build:gradle:3.3.0-alpha04'
-        classpath 'com.android.tools.build:gradle:3.6.4'
+        classpath 'com.android.tools.build:gradle:8.13.2'
         classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.24.20"
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -19,19 +18,20 @@ buildscript {
 allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 }
 
-task clean(type: Delete) {
+tasks.register('clean', Delete) {
     delete rootProject.buildDir
 }
 
 ext {
     // Sdk and tools
+    javaVersion = 17
     minSdkVersion = 21
-    targetSdkVersion = 33
-    compileSdkVersion = 33
+    targetSdkVersion = 35
+    compileSdkVersion = 35
 
     // App dependencies
     supportLibVersion = '27.1.1'

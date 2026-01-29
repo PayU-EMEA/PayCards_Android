@@ -39,7 +39,7 @@ target_include_directories(caffe
 
 target_compile_definitions(caffe PUBLIC CPU_ONLY USE_EIGEN)
 target_compile_options(caffe PRIVATE
-        -marm -Wno-unused-command-line-argument
+        -Wno-unused-command-line-argument
         -frtti -fexceptions
         -O3)
 set_target_properties(caffe PROPERTIES

@@ -6,7 +6,7 @@ publishing {
     publications {
         aar(MavenPublication) {
             groupId "cards.pay"
-            version "1.0.2"
+            version "1.0.3"
             artifactId "pay-cards-android"
             artifact("$buildDir/outputs/aar/${project.getName()}-release.aar")
 
@@ -64,10 +64,6 @@ publishing {
         }
     }
 }
-
-
-
-
 
 artifactory {
     contextUrl = repositoryPath

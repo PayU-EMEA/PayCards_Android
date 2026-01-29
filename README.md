@@ -1,3 +1,10 @@
+# Build and push to jfrog
+https://payu.jfrog.io/ui/repos/tree/General/mobile-sdk-gradle-local/cards/pay/pay-cards-android
+* set new version in [artifactory/release.gradle](artifactory/release.gradle)
+* clean old builds: `./gradlew clean`
+* build: `./gradlew assembleRelease`
+* publish to jfrog: `./gradlew artifactoryPublish`
+
 # PAY.CARDS RECOGNIZER
 
 Automatic recognition of bank card data using built-in camera on Android devices.

@@ -1,23 +1,21 @@
 apply plugin: 'com.android.library'
-apply from: rootProject.file('gradle/gradle-mvn-push.gradle')
-apply from: "../artifactory/release.gradle"
+apply from: '../artifactory/release.gradle'
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
+    ndkVersion "28.0.13004108"
 
     testBuildType "profiling"
 
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode Integer.parseInt(VERSION_CODE)
-        versionName VERSION_NAME
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         externalNativeBuild {
             cmake {
                 abiFilters 'armeabi-v7a', "arm64-v8a", "x86",  "x86_64"
-                arguments '-DANDROID_STL=c++_shared'
+                arguments '-DANDROID_STL=c++_shared', '-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON'
             }
         }
     }
@@ -35,7 +33,6 @@ android {
         }
         debug {
             jniDebuggable true
-            debuggable true
         }
         profiling {
             initWith debug
@@ -48,11 +45,12 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     resourcePrefix "wocr_"
+    namespace 'cards.pay.paycardsrecognizer.sdk'
 }
 
 dependencies {
@@ -61,16 +59,4 @@ dependencies {
     implementation "com.facebook.device.yearclass:yearclass:$rootProject.ext.yearclassVersion"
 
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
-}
-
-afterEvaluate { project ->
-    android.libraryVariants.all { variant ->
-        tasks.androidJavadocs.doFirst {
-            include '**/cards/pay/paycardsrecognizer/sdk/*.java'
-            options.encoding = "utf-8"
-            options.charSet = "utf-8"
-            options.showFromPublic()
-            failOnError false
-        }
-    }
 }

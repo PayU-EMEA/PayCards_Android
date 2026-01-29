@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 
-uploadArchives.enabled = false
+//uploadArchives.enabled = false
 
 ext.private = new Properties()
 if (rootProject.file('private.properties').exists()) {
@@ -17,7 +17,7 @@ android {
         versionCode Integer.parseInt(DEMO_APP_VERSION_CODE)
         versionName DEMO_APP_VERSION_NAME
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        resConfigs "en"
+        resourceConfigurations += ['en']
     }
     signingConfigs {
         release
@@ -39,9 +39,11 @@ android {
         }
     }
     packagingOptions {
-        exclude 'META-INF/LICENSE.txt'
-        exclude 'META-INF/NOTICE.txt'
+        resources {
+            excludes += ['META-INF/LICENSE.txt', 'META-INF/NOTICE.txt']
+        }
     }
+    namespace 'cards.pay.sample.demo'
 }
 
 dependencies {

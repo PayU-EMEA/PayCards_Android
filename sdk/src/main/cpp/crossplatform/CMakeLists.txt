@@ -33,7 +33,7 @@ set_target_properties(crossplatform PROPERTIES
         CXX_VISIBILITY_PRESET hidden
         VISIBILITY_INLINES_HIDDEN 1)
 target_compile_options(crossplatform PRIVATE
-        -marm -Wno-unused-command-line-argument
+        -Wno-unused-command-line-argument
         -frtti -fexceptions
         -O3)
 
